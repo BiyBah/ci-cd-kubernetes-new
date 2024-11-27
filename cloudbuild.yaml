@@ -10,5 +10,5 @@ steps:
     args: ['push', 
            'gcr.io/b-508911/fastapi-app:latest']
 
-  images:
-    - 'gcr.io/b-508911/fastapi-app:latest'
+images:
+  - 'gcr.io/b-508911/fastapi-app:latest'
