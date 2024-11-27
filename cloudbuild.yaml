@@ -1,0 +1,14 @@
+steps:
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker' #pre-built image oleh google
+    args: ['build', '-t', 
+           'gcr.io/b-508911/fastapi-app:latest', 
+           '.']
+
+  # Docker Push
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 
+           'gcr.io/b-508911/fastapi-app:latest']
+
+  images:
+    - 'gcr.io/b-508911/fastapi-app:latest'
