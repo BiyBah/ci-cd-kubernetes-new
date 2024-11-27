@@ -13,5 +13,10 @@ steps:
     args: ['push', 
            'gcr.io/b-508911/fastapi-app:latest']
 
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: ['run', 'deploy', 'fast-api-test', '--image', 'gcr.io/b-508911/fastapi-app:latest', '--region', 'us-central1, '--platform', 'managed']
+
 images:
   - 'gcr.io/b-508911/fastapi-app:latest'
