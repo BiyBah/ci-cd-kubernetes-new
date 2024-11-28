@@ -4,7 +4,7 @@ options:
 steps:
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker' #pre-built image oleh google
-    args: ['build', '-t', 
+    args: ['build', '--no-cache', '-t', 
            'gcr.io/b-508911/fastapi-app:latest', 
            '.']
 
