@@ -24,9 +24,9 @@ steps:
     entrypoint: 'bash'
     args: 
     - '-c'
-    |
-    kubectl apply -f kubernetes/deployment.yaml
-    kubectl apply -f kubernetes/service.yaml
-    
+    - |
+      kubectl apply -f kubernetes/deployment.yaml
+      kubectl apply -f kubernetes/service.yaml
+
 images:
   - 'gcr.io/b-508911/fastapi-app:latest'
