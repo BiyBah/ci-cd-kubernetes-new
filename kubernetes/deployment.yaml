@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: fast-api
-        image: biybah/k8s-fast-api:0.0.1
+        image: gcr.io/b-508911/fastapi-app:latest
         ports:
         - containerPort: 80
         resources:

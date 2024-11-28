@@ -13,11 +13,20 @@ steps:
     args: ['push', 
            'gcr.io/b-508911/fastapi-app:latest']
 
-  # Deploy container image to Cloud Run
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: gcloud
-    args: ['run', 'deploy', 'fast-api-test', '--image', 'gcr.io/b-508911/fastapi-app:latest',
-           '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
+  # # Deploy container image to Cloud Run
+  # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  #   entrypoint: gcloud
+  #   args: ['run', 'deploy', 'fast-api-test', '--image', 'gcr.io/b-508911/fastapi-app:latest',
+  #          '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
 
+  # Deploy to Cloud GKE
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args: 
+    - '-c'
+    |
+    kubectl apply -f kubernetes/deployment.yaml
+    kubectl apply -f kubernetes/service.yaml
+    
 images:
   - 'gcr.io/b-508911/fastapi-app:latest'
